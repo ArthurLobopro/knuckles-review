@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Knuckles Review
         if: ${{ github.event.review.state == 'approved' }}
-        uses: ArthurLobopro/knuckles-review@v0.2
+        uses: ArthurLobopro/knuckles-review@v0.3
         with:
           type: "Approved"
         env:
@@ -19,7 +19,7 @@ jobs:
 
       - name: Knuckles Review
         if: ${{ github.event.review.state == 'changes_requested' }}
-        uses: ArthurLobopro/knuckles-review@v0.2
+        uses: ArthurLobopro/knuckles-review@v0.3
         with:
           type: "IDK"
         env:
