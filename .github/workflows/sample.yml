@@ -6,19 +6,23 @@ on:
 
 jobs:
   knuckles_review:
+    permissions: 
+      pull-requests: write
     runs-on: ubuntu-latest
+
+    env:
+      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
     steps:
       - name: Knuckles Review
         if: ${{ github.event.review.state == 'approved' }}
-        uses: ArthurLobopro/knuckles-review@v0.2
+        uses: ArthurLobopro/knuckles-review@v0.4
         with:
           type: "Approved"
 
       - name: Knuckles Review
         if: ${{ github.event.review.state == 'changes_requested' }}
-        uses: ArthurLobopro/knuckles-review@v0.2
+        uses: ArthurLobopro/knuckles-review@v0.4
         with:
           type: "IDK"
-
     

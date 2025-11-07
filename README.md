@@ -11,7 +11,7 @@ Add a step on your github action like this
 ```yml
 - name: Knuckles Review
     if: ${{ github.event.review.state == 'approved' }}
-    uses: ArthurLobopro/knuckles-review@v0.1
+    uses: ArthurLobopro/knuckles-review@v0.4
     with:
         type: "Approved"
 
