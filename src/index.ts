@@ -21,7 +21,7 @@ async function run() {
             Approved: "![Approved](https://c.tenor.com/lztbLMEBDs4AAAAd/tenor.gif)",
             No: "![No](https://c.tenor.com/SBuw9Y2RqZgAAAAd/tenor.gif)",
             IDK: "![IDK](https://c.tenor.com/biVuqHS9zigAAAAd/tenor.gif)"
-        };
+        } as const;
 
         if (!(type in gifs)) {
             throw new Error("Invalid type, type must be `Approved`, `IDK` or `No`");
@@ -31,9 +31,9 @@ async function run() {
             owner: context.repo.owner,
             repo: context.repo.repo,
             issue_number: pr.number,
-            body: gifs[type],
+            body: gifs[type as keyof typeof gifs],
         });
-    } catch (error) {
+    } catch (error: any) {
         core.setFailed(error.message);
     }
 }
