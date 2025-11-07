@@ -14,11 +14,14 @@ jobs:
         uses: ArthurLobopro/knuckles-review@v0.2
         with:
           type: "Approved"
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
 
       - name: Knuckles Review
         if: ${{ github.event.review.state == 'changes_requested' }}
         uses: ArthurLobopro/knuckles-review@v0.2
         with:
           type: "IDK"
-
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
     
