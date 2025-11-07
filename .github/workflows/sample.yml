@@ -10,6 +10,9 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
 
+    env:
+      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
     steps:
       - name: Knuckles Review
         if: ${{ github.event.review.state == 'approved' }}
